@@ -1,13 +1,16 @@
-prompt = 'What is your age? '
+numbers = 0
+sum_numbers = 0
 
-age = input(prompt)
-age = int(age)
+while numbers != 2:
+    prompt = 'Please provide a number:'
+    number = input(prompt)
 
-if age<3:
-    print('Your ticket is free.')
-elif age<=12:
-    print('Your ticket costs 10$.')
-elif age>12:
-    print('Your ticket costs 15$.')
-else:
-    print('Incorect age provided.')
+    try:
+        number = int(number)
+    except ValueError:
+        print('Please provide numbers instead of strings.')
+    else:
+        sum_numbers += number
+        numbers += 1
+        
+print(f'Sum of your numbers: {sum_numbers}')
