@@ -1,16 +1,14 @@
-numbers = 0
-sum_numbers = 0
+import json
 
-while numbers != 2:
-    prompt = 'Please provide a number:'
+filename = 'user_number.json'
+try:
+    with open(filename, 'r') as file_object:
+        user_number = json.load(file_object)
+except FileNotFoundError:
+    prompt = 'Let us know your favourite number: '
     number = input(prompt)
-
-    try:
-        number = int(number)
-    except ValueError:
-        print('Please provide numbers instead of strings.')
-    else:
-        sum_numbers += number
-        numbers += 1
-        
-print(f'Sum of your numbers: {sum_numbers}')
+    number = int(number)
+    with open(filename, 'w') as file_object:
+        json.dump(number, file_object)
+else:
+    print(f'I know your favourite number is {user_number}.')
