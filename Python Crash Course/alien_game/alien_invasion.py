@@ -86,6 +86,7 @@ class AlienInvasion:
             self.stats.game_active = True
             self.sb.prep_score()
             self.sb.prep_level()
+            self.sb.prep_ships()
 
             # Get rid of any remaining game objects
             self.aliens.empty()
@@ -168,7 +169,7 @@ class AlienInvasion:
         star = Star(self)
         star_width, star_height = star.rect.size
         star.x = randint(0 + star_width, self.settings.screen_width - star_width)
-        star.y = randint(0 + star_height, self.settings.screen_height - star_height - self.ship.rect.height)
+        star.y = randint(0 + star_height, self.settings.screen_height - star_height - star_height)
         star.rect.x = star.x
         star.rect.y = star.y
         self.stars.add(star)
@@ -235,6 +236,7 @@ class AlienInvasion:
         if self.stats.ships_left > 0:
             # Decrement ships left
             self.stats.ships_left -= 1
+            self.sb.prep_ships()
 
             # Get rid of any remaining aliens and bullets
             self.aliens.empty()

@@ -10,13 +10,13 @@ class Star(Sprite):
         super().__init__()
         self.screen = ai_game.screen
 
-        # Load the alien image and set its rect attribute
+        # Load the star image and set its rect attribute
         self.image = pygame.image.load('images/star.png')
         self.rect = self.image.get_rect()
 
-        # Start each new alien near the top left of the screen
+        # Start each new star near the top left of the screen
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
 
-        # Store alien's exact horizontal position
+        # Store star's exact horizontal position
         self.x = float(self.rect.x)
